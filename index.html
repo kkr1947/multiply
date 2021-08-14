@@ -48,8 +48,10 @@ Course Name - Bsc (Hons) Computer Science
         
                for(j= 1; j< 11; j++){
                var cell = document.createElement("td");
-               cell.setAttribute("style", "font-size:20px;"); 
+               
                cell.style.width = "10%";
+
+               cell.style.fontSize = (10+row_number)+'px';
                var cellText = document.createTextNode(row_number+" X "+ j + " = " + row_number*j);
                cell.appendChild(cellText);
                row.appendChild(cell);
