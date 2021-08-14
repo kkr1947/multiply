@@ -1,0 +1,79 @@
+<!-- 
+    
+Code By 
+Name - Kuldeep Kumar
+Class Roll no - 19HCS4028
+University Exam roll no - 19015570017
+Course Name - Bsc (Hons) Computer Science 
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Multiplication Table</title>
+   </head>
+   <body>
+      <script>
+         // function to creat random colour
+         function generate_color() {
+           var letters = '0123456789ABCDEF';
+           var color = '#';
+           for (var i = 0; i < 6; i++) {
+             color += letters[Math.floor(Math.random() * 16)];
+           }
+           return color;
+         }
+         
+         
+         // function to generate table
+        function generate_table(row_number) {
+           
+           // get the reference for the body
+           var body = document.getElementsByTagName("body")[0];
+         
+           // creates a <table> element and a <tbody> element
+           var tbl = document.createElement("table");
+         
+            tbl.style.width = "100%";
+           var tblBody = document.createElement("tbody");
+         
+           var row = document.createElement("tr");
+         
+             row.style.backgroundColor = generate_color();
+        
+               for(j= 1; j< 11; j++){
+               var cell = document.createElement("td");
+               cell.setAttribute("style", "font-size:20px;"); 
+               cell.style.width = "10%";
+               var cellText = document.createTextNode(row_number+" X "+ j + " = " + row_number*j);
+               cell.appendChild(cellText);
+               row.appendChild(cell);
+               }
+             // add the row to the end of the table body
+             tblBody.appendChild(row);  
+         
+           // put the <tbody> in the <table>
+           tbl.appendChild(tblBody);
+           // appends <table> into <body>
+           body.appendChild(tbl);
+         
+         
+         }
+         
+         var counter = 2;
+         var i = setInterval(function(){
+             generate_table(counter)
+             counter++;
+             if(counter === 11) {
+                 clearInterval(i);
+             }
+         }, 200);
+             
+      </script>
+   </body>
+</html>
